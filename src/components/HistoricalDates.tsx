@@ -14,6 +14,10 @@ const HistoricalDates = ({ className }: Props) => {
         <h2 className="historical-dates__title">
           Исторические<br/>даты
         </h2>
+        <div className="historical-dates__main-dates">
+          <h3 className="historical-dates__date historical-dates__date--first">2015</h3>
+          <h3 className="historical-dates__date historical-dates__date--last">2022</h3>
+        </div>
         <DatesCircle />
         <DatesSlider />
       </div>
