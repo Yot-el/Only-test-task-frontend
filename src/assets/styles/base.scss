@@ -20,13 +20,6 @@ body {
   color: $text-primary;
 }
 
-#root {
-	flex-grow: 1;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-}
-
 .container {
 	max-width: 1440px;
 	margin: 0 $desktop-margin-right 0 $desktop-margin-left;
