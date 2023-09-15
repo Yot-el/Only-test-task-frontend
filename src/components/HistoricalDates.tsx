@@ -18,7 +18,7 @@ const HistoricalDates = ({ className }: Props) => {
           <h3 className="historical-dates__date historical-dates__date--first">2015</h3>
           <h3 className="historical-dates__date historical-dates__date--last">2022</h3>
         </div>
-        <DatesCircle />
+        <DatesCircle className="historical-dates__circle"/>
         <DatesSlider />
       </div>
     </section>

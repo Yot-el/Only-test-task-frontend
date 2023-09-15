@@ -19,6 +19,7 @@
   &::before {
     content: "";
     position: absolute;
+    z-index: 0;
     background: $lines-color;
   }
 
@@ -59,6 +60,8 @@
 }
 
 .historical-dates__main-dates {
+  position: relative;
+  z-index: 1;
   margin: 0 0 175px 0;
   align-self: center;
   display: flex;
@@ -80,4 +83,10 @@
   &--last {
     color: $fuchsia;
   }
+}
+
+.historical-dates__circle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
