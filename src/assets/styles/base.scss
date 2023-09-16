@@ -20,13 +20,26 @@ body {
   color: $text-primary;
 }
 
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
 .container {
 	max-width: 1440px;
-	margin: 0 $desktop-margin-right 0 $desktop-margin-left;
-	width: calc(100vw - ($desktop-margin-right + $desktop-margin-left));
+	margin: 0 auto;
+	width: 100vw;
 
 	@media screen and (max-width: $mobile) {
-    margin: 0 auto;
-    width: calc(100vw - $mobile-margin);
+    
+    width: calc(100vw - calc($mobile-margin * 2));
   }
 }
