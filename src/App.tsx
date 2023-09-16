@@ -1,14 +1,12 @@
 import React from "react";
 import "./assets/styles/style.scss";
 import HistoricalDates from "./components/HistoricalDates";
-
-import { register } from 'swiper/element/bundle';
-register();
+import themes from "./data/themes.json";
 
 const App = () => {
   return (
     <>
-      <HistoricalDates className="app__section"/>
+      <HistoricalDates className="app__section" themes={themes}/>
     </>
   );
 };
