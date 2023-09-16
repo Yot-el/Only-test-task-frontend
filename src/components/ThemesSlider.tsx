@@ -10,7 +10,7 @@ interface Props {
   setActiveTheme: Function;
 }
 
-const DatesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
+const ThemesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
 
   const [swiper, setSwiper] = useState<SwiperClass | null>(null);
   useEffect(() => {
@@ -69,4 +69,4 @@ const DatesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
   );
 }
 
-export default DatesSlider;
+export default ThemesSlider;
