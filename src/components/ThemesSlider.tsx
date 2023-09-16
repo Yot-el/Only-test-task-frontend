@@ -3,6 +3,7 @@ import {Theme} from '../models/models'
 import "../assets/styles/themes-slider.scss";
 import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import DatesSlider from "./DatesSlider";
 
 interface Props {
   themes: Array<Theme>;
@@ -44,11 +45,11 @@ const ThemesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
           </span>
         </div>
         <div className="themes-slider__buttons">
-          <button className="themes-slider__button themes-slider__button--prev" onClick={onPrevButtonClick}>
-            Prev
+          <button className="themes-slider__button themes-slider__button--prev" onClick={onPrevButtonClick} disabled={activeTheme === 0}>
+            <span className="visually-hidden">Prev</span>
           </button>
-          <button className="themes-slider__button themes-slider__button--next" onClick={onNextButtonClick}>
-            Next
+          <button className="themes-slider__button themes-slider__button--next" onClick={onNextButtonClick} disabled={activeTheme === (themes.length - 1)}>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </div>
@@ -58,10 +59,12 @@ const ThemesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
       modules={[Pagination]}
       pagination
       slidesPerView={1}
+      spaceBetween={80}
+      allowTouchMove={false}
       >
         { themes.map((theme, index) => (
           <SwiperSlide className="themes-slider__slider" key={index}>
-            {theme.title}
+            <DatesSlider theme={theme}/>
           </SwiperSlide>
         ))}
       </Swiper>
