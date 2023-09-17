@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import {Theme} from '../models/models'
+import React, { useEffect, useState } from "react";
+import { Theme } from '../models/models'
 import "../assets/styles/themes-slider.scss";
 import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
 import { Pagination, EffectCreative } from 'swiper/modules';
@@ -13,9 +13,7 @@ interface Props {
 }
 
 const ThemesSlider = ({ themes, activeTheme, setActiveTheme, className }: Props) => {
-
   const [swiper, setSwiper] = useState<SwiperClass | null>(null);
-  const scope = useRef(null);
 
   useEffect(() => {
     swiper?.slideTo(activeTheme)
@@ -36,15 +34,15 @@ const ThemesSlider = ({ themes, activeTheme, setActiveTheme, className }: Props)
   }
 
   return (
-    <div className={`themes-slider ${className}`} ref={scope}>
+    <div className={`themes-slider ${className}`}>
       <div className="themes-slider__controls">
         <div className="themes-slider__fraction">
           <span className="themes-slider__current">
-            { convertSlidersCount(activeTheme + 1) }
+            {convertSlidersCount(activeTheme + 1)}
           </span>
           /
           <span className="themes-slider__total">
-            { convertSlidersCount(themes.length) }
+            {convertSlidersCount(themes.length)}
           </span>
         </div>
         <div className="themes-slider__buttons">
@@ -57,31 +55,30 @@ const ThemesSlider = ({ themes, activeTheme, setActiveTheme, className }: Props)
         </div>
       </div>
       <Swiper
-      onSwiper={setSwiper}
-      className="themes-slider__slider"
-      modules={[Pagination, EffectCreative]}
-      pagination
-      slidesPerView={1}
-      spaceBetween={80}
-      allowTouchMove={false}
-      effect={"creative"}
-      speed={500}
-      creativeEffect={
-        {
-          prev: {
-            opacity: 0,
-            translate: [0, '15%', 0],
-          },
-          next: {
-            opacity: 0,
-            translate: [0, '15%', 0],
-          },
+        onSwiper={setSwiper}
+        className="themes-slider__slider"
+        modules={[Pagination, EffectCreative]}
+        pagination
+        slidesPerView={1}
+        allowTouchMove={false}
+        effect={"creative"}
+        speed={500}
+        creativeEffect={
+          {
+            prev: {
+              opacity: 0,
+              translate: [0, '15%', 0],
+            },
+            next: {
+              opacity: 0,
+              translate: [0, '15%', 0],
+            },
+          }
         }
-      }
       >
-        { themes.map((theme, index) => (
+        {themes.map((theme, index) => (
           <SwiperSlide className="themes-slider__slide" key={index}>
-            <DatesSlider theme={theme}/>
+            <DatesSlider theme={theme} />
           </SwiperSlide>
         ))}
       </Swiper>

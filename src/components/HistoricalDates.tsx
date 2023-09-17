@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import {Theme} from '../models/models'
+import { Theme } from '../models/models'
 import "../assets/styles/historical-dates.scss";
 import ThemesSlider from "./ThemesSlider";
 import ThemesCircle from "./ThemesCircle";
@@ -26,9 +26,9 @@ const HistoricalDates = ({ className, themes }: Props) => {
   useEffect(() => {
     // @ts-ignore
     const ctx = gsap.context(() => {
-      gsap.to('.historical-dates__date--first', {duration: 0.5, textContent: getFirstDate(themes[activeTheme]), snap: { textContent: 1 }});
-      gsap.to('.historical-dates__date--last', {duration: 0.5, textContent: getLastDate(themes[activeTheme]), snap: { textContent: 1 }});
-    }, scope); 
+      gsap.to('.historical-dates__date--first', { duration: 0.5, textContent: getFirstDate(themes[activeTheme]), snap: { textContent: 1 } });
+      gsap.to('.historical-dates__date--last', { duration: 0.5, textContent: getLastDate(themes[activeTheme]), snap: { textContent: 1 } });
+    }, scope);
 
   }, [activeTheme])
 
@@ -36,16 +36,16 @@ const HistoricalDates = ({ className, themes }: Props) => {
     <section className={`${className} historical-dates`} ref={scope}>
       <div className="container historical-dates__inner">
         <h2 className="historical-dates__title">
-          Исторические<br/>даты
+          Исторические<br />даты
         </h2>
         <div className="historical-dates__main-dates container">
           <h3 className="historical-dates__date historical-dates__date--first"></h3>
           <h3 className="historical-dates__date historical-dates__date--last"></h3>
         </div>
         <div className="historical-dates__circle">
-          <ThemesCircle themes={themes} activeTheme={activeTheme} setActiveTheme={setActiveTheme}/>
+          <ThemesCircle themes={themes} activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
         </div>
-        <ThemesSlider className="historical-dates__slider" themes={themes} activeTheme={activeTheme} setActiveTheme={setActiveTheme}/>
+        <ThemesSlider className="historical-dates__slider" themes={themes} activeTheme={activeTheme} setActiveTheme={setActiveTheme} />
       </div>
     </section>
   );

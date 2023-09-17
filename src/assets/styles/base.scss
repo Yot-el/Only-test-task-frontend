@@ -39,7 +39,6 @@ body {
 	width: 100vw;
 
 	@media screen and (max-width: $mobile) {
-    
     width: calc(100vw - calc($mobile-margin * 2));
   }
 }

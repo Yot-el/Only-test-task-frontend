@@ -6,8 +6,7 @@ import themes from "./data/themes.json";
 const App = () => {
   return (
     <>
-      <HistoricalDates className="app__section" themes={themes}/>
-      <HistoricalDates className="app__section" themes={themes}/>
+      <HistoricalDates className="app__section" themes={themes} />
     </>
   );
 };
