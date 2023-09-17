@@ -68,10 +68,6 @@
     & .themes-circle__theme-index {
       opacity: 1;
     }
-
-    & .themes-circle__theme-title {
-      display: block;
-    }
   }
 }
 
@@ -86,6 +82,10 @@
   cursor: default;
   transform-origin: left center;
   transform: rotate(var(--inner-angle));
+
+  &--active {
+    display: block;
+  }
 }
 
 .themes-circle__theme-index {

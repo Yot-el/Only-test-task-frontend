@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {Theme} from '../models/models'
 import "../assets/styles/themes-slider.scss";
 import { Swiper, SwiperSlide, SwiperClass } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
+import { Pagination, EffectCreative } from 'swiper/modules';
 import DatesSlider from "./DatesSlider";
 
 interface Props {
@@ -14,6 +14,8 @@ interface Props {
 const ThemesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
 
   const [swiper, setSwiper] = useState<SwiperClass | null>(null);
+  const scope = useRef(null);
+
   useEffect(() => {
     swiper?.slideTo(activeTheme)
   }, [activeTheme])
@@ -29,11 +31,11 @@ const ThemesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
 
   const onNextButtonClick = (): void => {
     const newTheme = activeTheme + 1;
-    newTheme > (themes.length - 1) ? setActiveTheme(themes.length - 1) : setActiveTheme(newTheme)
+    newTheme > (themes.length - 1) ? setActiveTheme(themes.length - 1) : setActiveTheme(newTheme);
   }
 
   return (
-    <div className="themes-slider">
+    <div className="themes-slider" ref={scope}>
       <div className="themes-slider__controls">
         <div className="themes-slider__fraction">
           <span className="themes-slider__current">
@@ -56,14 +58,28 @@ const ThemesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
       <Swiper
       onSwiper={setSwiper}
       className="themes-slider__slider"
-      modules={[Pagination]}
+      modules={[Pagination, EffectCreative]}
       pagination
       slidesPerView={1}
       spaceBetween={80}
       allowTouchMove={false}
+      effect={"creative"}
+      speed={500}
+      creativeEffect={
+        {
+          prev: {
+            opacity: 0,
+            translate: [0, '15%', 0],
+          },
+          next: {
+            opacity: 0,
+            translate: [0, '15%', 0],
+          },
+        }
+      }
       >
         { themes.map((theme, index) => (
-          <SwiperSlide className="themes-slider__slider" key={index}>
+          <SwiperSlide className="themes-slider__slide" key={index}>
             <DatesSlider theme={theme}/>
           </SwiperSlide>
         ))}

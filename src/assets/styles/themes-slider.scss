@@ -69,7 +69,8 @@
     }
   }
 
-  .themes-slider__slide {
-    text-align: center;
+  // Fix swiper transition of opacity property
+  .themes-slider__slide.swiper-slide-active {
+    transition-property: all;
   }
 }
