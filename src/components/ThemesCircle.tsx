@@ -4,13 +4,12 @@ import gsap from "gsap";
 import "../assets/styles/themes-circle.scss";
 
 interface Props {
-  className: string;
   themes: Array<Theme>;
   activeTheme: number;
   setActiveTheme: Function;
 }
 
-const ThemesCircle = ({ className, themes, activeTheme, setActiveTheme }: Props) => {
+const ThemesCircle = ({ themes, activeTheme, setActiveTheme }: Props) => {
 
   const degrees = 360;
   const themesAngle = degrees/themes.length;
@@ -37,7 +36,7 @@ const ThemesCircle = ({ className, themes, activeTheme, setActiveTheme }: Props)
     }, [activeTheme])
 
   return (
-    <div className={`${className} themes-circle`} ref={buttons}>
+    <div className="themes-circle" ref={buttons}>
       { themes.map((theme, index) => (
         <button className={
           `themes-circle__button 

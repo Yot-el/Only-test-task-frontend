@@ -1,6 +1,7 @@
 @use "./variables.scss" as *;
 
 .themes-circle {
+  position: relative;
   z-index: 2;
   width: 530px;
   height: 530px;
@@ -16,6 +17,18 @@
 
     border: 1px solid $lines-color;
     border-radius: 50%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    background: $lines-color;
+    height: 1px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
   }
 }
 

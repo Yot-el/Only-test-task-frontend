@@ -12,7 +12,7 @@ const DatesSlider = ({ theme }: Props) => {
 
   return (
     <div className="dates-slider">
-      <h3 className="dates-slider__title">
+      <h3 className="dates-slider__title container">
         { theme.title }
       </h3>
       <button className="dates-slider__button dates-slider__button--prev">
@@ -25,7 +25,6 @@ const DatesSlider = ({ theme }: Props) => {
       className="dates-slider__slider"
       slidesPerView="auto"
       grabCursor={true}
-      spaceBetween={80}
       modules={[Navigation]}
       navigation={{
         nextEl: '.dates-slider__button--next',
@@ -33,7 +32,7 @@ const DatesSlider = ({ theme }: Props) => {
       }}
       >
         { theme.dates.map((date, index) => (
-          <SwiperSlide key={index} className="dates-slider__date">
+          <SwiperSlide key={index} className="dates-slider__slide">
             <h4 className="dates-slider__date-title">
               { date.date }
             </h4>

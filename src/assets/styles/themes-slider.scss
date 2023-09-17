@@ -7,19 +7,42 @@
   .themes-slider {
     display: flex;
     flex-direction: column;
+
+    @media screen and (max-width: $mobile) {
+      flex-direction: column-reverse;
+    }
   }
 
   .themes-slider__controls {
-    margin: 0 0 50px 0;
+    align-self: start;
+    position: relative;
+    margin: 0 0 auto 0;
     padding: 0 80px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media screen and (max-width: $mobile) {
+      z-index: 3;
+      margin: 0;
+      gap: 10px;
+      padding: 0 20px;
+    }
+  }
+
+  .themes-slider__fraction {
+    @media screen and (max-width: $mobile) {
+      font-size: $fs-xs;
+    }
   }
 
   .themes-slider__buttons {
     display: flex;
     gap: 20px;
+
+    @media screen and (max-width: $mobile) {
+      gap: 8px;
+    }
   }
 
   .themes-slider__button {
@@ -55,6 +78,18 @@
       cursor: default;
       opacity: 0.5;
     }
+
+    @media screen and (max-width: $mobile) {
+      width: 25px;
+      height: 25px;
+
+      &::after {
+        content: "";
+        width: 8px;
+        height: 16px;
+        background-image: url('../icons/arrow-mobile.svg');
+      }
+    }
   }
 
   .themes-slider__slider {
@@ -63,14 +98,31 @@
     --swiper-pagination-bullet-inactive-opacity: 0.4;
 
     width: 100%;
+    position: relative;
 
     & .swiper-pagination {
       display: none;
     }
+
+    @media screen and (max-width: $mobile) {
+      flex-grow: 1;
+      overflow: visible;
+
+      & .swiper-pagination {
+        position: absolute;
+        bottom: -55px;
+        display: block;
+      }
+    }
   }
 
-  // Fix swiper transition of opacity property
-  .themes-slider__slide.swiper-slide-active {
-    transition-property: all;
+  .themes-slider__slide {
+    display: flex;
+    flex-direction: column;
+
+    // Fix swiper transition of opacity property
+    &.swiper-slide-active {
+      transition-property: all;
+    }
   }
 }

@@ -38,12 +38,14 @@ const HistoricalDates = ({ className, themes }: Props) => {
         <h2 className="historical-dates__title">
           Исторические<br/>даты
         </h2>
-        <div className="historical-dates__main-dates">
+        <div className="historical-dates__main-dates container">
           <h3 className="historical-dates__date historical-dates__date--first"></h3>
           <h3 className="historical-dates__date historical-dates__date--last"></h3>
         </div>
-        <ThemesCircle className="historical-dates__circle" themes={themes} activeTheme={activeTheme} setActiveTheme={setActiveTheme}/>
-        <ThemesSlider themes={themes} activeTheme={activeTheme} setActiveTheme={setActiveTheme}/>
+        <div className="historical-dates__circle">
+          <ThemesCircle themes={themes} activeTheme={activeTheme} setActiveTheme={setActiveTheme}/>
+        </div>
+        <ThemesSlider className="historical-dates__slider" themes={themes} activeTheme={activeTheme} setActiveTheme={setActiveTheme}/>
       </div>
     </section>
   );

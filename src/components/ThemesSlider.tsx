@@ -9,9 +9,10 @@ interface Props {
   themes: Array<Theme>;
   activeTheme: number;
   setActiveTheme: Function;
+  className: string;
 }
 
-const ThemesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
+const ThemesSlider = ({ themes, activeTheme, setActiveTheme, className }: Props) => {
 
   const [swiper, setSwiper] = useState<SwiperClass | null>(null);
   const scope = useRef(null);
@@ -35,7 +36,7 @@ const ThemesSlider = ({ themes, activeTheme, setActiveTheme }: Props) => {
   }
 
   return (
-    <div className="themes-slider" ref={scope}>
+    <div className={`themes-slider ${className}`} ref={scope}>
       <div className="themes-slider__controls">
         <div className="themes-slider__fraction">
           <span className="themes-slider__current">
